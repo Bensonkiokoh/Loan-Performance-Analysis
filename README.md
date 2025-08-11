@@ -103,7 +103,18 @@ ORDER BY FLOOR(loan_value / 1000);
 
 <img width="242" height="247" alt="Screenshot 2025-08-11 215619" src="https://github.com/user-attachments/assets/fb229e4e-cc78-4ed2-9dab-6e0c761a3699" />
 
+#### How many clients take a second loan and how long do they wait?
+```sql
+SELECT 
+	client_id ,
+	COUNT(*) LoanCount
+FROM Loans
+WHERE application_status = 5
+GROUP BY client_id
+HAVING COUNT(*) > 1
+```
 
+<img width="145" height="260" alt="Screenshot 2025-08-11 221257" src="https://github.com/user-attachments/assets/98b0bde6-e380-4960-af27-722a477780ae" />
 
 
 
