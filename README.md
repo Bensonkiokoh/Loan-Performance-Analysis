@@ -116,6 +116,84 @@ HAVING COUNT(*) > 1
 
 <img width="145" height="260" alt="Screenshot 2025-08-11 221257" src="https://github.com/user-attachments/assets/98b0bde6-e380-4960-af27-722a477780ae" />
 
+#### How Long do they wait to take another loan
+```sql
+SELECT 
+  client_id,
+  COUNT(*) AS loan_count,
+  MIN(application_creation_date) AS first_loan_date,
+  MAX(application_creation_date) AS last_loan_date,
+  DATEDIFF(DAY, MIN(application_creation_date), MAX(application_creation_date)) AS DaysBetweenLoans
+FROM Loans
+WHERE application_status = 5
+GROUP BY client_id
+HAVING  COUNT(*) >1
+ORDER BY DaysBetweenLoans DESC;
+```
+<img width="576" height="262" alt="Screenshot 2025-08-12 052130" src="https://github.com/user-attachments/assets/9d2a6574-d518-4a30-bc53-1b5dd7d1a9a3" />
+
+#### Which weekdays and loan types are most popular?
+
+```sql
+SELECT 
+	DATENAME(WEEKDAY, application_creation_date) Day,
+	COUNT(*) LoansIssued
+FROM Loans
+WHERE application_status = 5
+GROUP BY DATENAME(WEEKDAY, application_creation_date), DATEPART(WEEKDAY, application_creation_date)
+ORDER BY DATEPART(WEEKDAY, application_creation_date)
+```
+<img width="170" height="165" alt="Screenshot 2025-08-12 053010" src="https://github.com/user-attachments/assets/31e78915-3f77-400a-935a-824c91949091" />
+
+#### Most Popular loan types
+```
+SELECT 
+	loan_type,COUNT(*) LoansIssued
+FROM Loans
+WHERE application_status = 5
+GROUP BY loan_type
+ORDER BY LoansIssued DESC
+```
+<img width="185" height="86" alt="Screenshot 2025-08-12 053609" src="https://github.com/user-attachments/assets/c602d925-f488-4792-b8e7-9ed2b30a39d4" />
+
+
+#### How many applications come from each source and which source brings the most value?
+```sql
+
+SELECT 
+	S.source_label,
+	COUNT(L.application_id) TotalApplications,
+	SUM(L.Loan_value) TotalLoanValue
+FROM Source S
+INNER JOIN Loans L ON S.application_id = L.application_id
+WHERE application_status = 5
+GROUP BY S.source_label
+ORDER BY TotalLoanValue DESC
+```
+<img width="305" height="108" alt="Screenshot 2025-08-12 054612" src="https://github.com/user-attachments/assets/89fc6100-d64a-4b6f-b8c5-943b9f39bd77" />
+
+#### What is the average loan issuance time by agent and team?
+```sql
+
+SELECT 
+    L.loan_agent,
+    T.team,
+    AVG(DATEDIFF(day, L.application_creation_date, LS.status_changed_at)) AS AvgIssuanceDays
+FROM Loans L
+INNER JOIN Team T ON T.agent_id = L.loan_agent_id
+INNER JOIN [Loan Status] LS ON L.application_id = LS.application_id
+WHERE L.application_status = 5
+GROUP BY L.loan_agent, T.team
+ORDER BY AvgIssuanceDays;
+```
+<img width="242" height="166" alt="Screenshot 2025-08-12 055953" src="https://github.com/user-attachments/assets/03fa52b4-9b3a-4380-b909-ffeedf955fbb" />
+
+#### How many loans are active daily?
+
+
+
+
+
 
 
 
