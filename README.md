@@ -266,7 +266,7 @@ ORDER BY d.LoanDate;
    - Digitize loan applications via mobile apps, USSD codes, WhatsApp bots, or web portals.
    - Deploy smart notifications to alert staff of pending approvals or missing documents.
 6. Align with Peak Days
-   - Identify peak loan activity days using historical data—e.g., Mondays and Thursdays.
+   - Identify peak loan activity days using historical data e.g., Mondays and Thursdays.
    - Schedule targeted promotions (e.g., discounts, giveaways) to coincide with high-demand days.
    - Send reminder messages to clients ahead of peak days to drive engagement.
    - Use dashboards to visualize daily trends and adjust operations dynamically.
