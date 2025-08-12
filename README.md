@@ -45,6 +45,36 @@ SELECT * FROM INFORMATION_SCHEMA.COLUMNS
 ## Key Business Questions
 These are the critical questions guiding the loan analysis, designed to uncover actionable insights and support data-driven decision-making:
 
+#### Loan KPI's
+```sql
+SELECT 
+	'Total Issued Loan Value'Description, SUM(Loan_value) Value
+FROM Loans
+WHERE application_status = 5
+UNION
+SELECT 
+	'Total Cancelled Loan Value' ,SUM(Loan_value) 
+FROM Loans
+WHERE application_status = 6
+UNION
+SELECT 
+	'Number of Issued Loans' ,COUNT(*) 
+FROM Loans
+WHERE application_status = 5
+UNION
+SELECT 
+	'Number of Cancelled Loans' ,COUNT(*) 
+FROM Loans
+WHERE application_status = 6
+UNION
+SELECT 
+	'Number of Customers' ,COUNT(DISTINCT Client_id) 
+FROM Loans
+
+```
+<img width="219" height="123" alt="Screenshot 2025-08-12 113613" src="https://github.com/user-attachments/assets/bdc2ef22-db39-415b-9cec-d50a94c64d19" />
+
+
 #### How many loans are issued each month?
 
 ```sql
