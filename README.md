@@ -189,6 +189,23 @@ ORDER BY AvgIssuanceDays;
 <img width="242" height="166" alt="Screenshot 2025-08-12 055953" src="https://github.com/user-attachments/assets/03fa52b4-9b3a-4380-b909-ffeedf955fbb" />
 
 #### How many loans are active daily?
+```sql
+SELECT 
+  d.LoanDate,
+  COUNT(l.application_id) AS ActiveLoans
+FROM (
+  SELECT DISTINCT CAST(application_creation_date AS DATE) AS LoanDate
+  FROM Loans
+  WHERE application_status = 5
+) d
+LEFT JOIN Loans l ON l.application_status = 5
+  AND CAST(l.application_creation_date AS DATE) <= d.LoanDate
+  AND (l.loan_paid_off_at IS NULL OR CAST(l.loan_paid_off_at AS DATE) >= d.LoanDate)
+GROUP BY d.LoanDate
+ORDER BY d.LoanDate;
+```
+
+<img width="167" height="343" alt="Screenshot 2025-08-12 065220" src="https://github.com/user-attachments/assets/f531937d-4b7b-4103-9145-6a951307e9d4" />
 
 
 
