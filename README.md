@@ -254,7 +254,7 @@ ORDER BY d.LoanDate;
    - Reward clients who refer others for KES 9,000 loans with small cash bonuses or discounts on their next loan.
    - Simplify the process of getting loans use pre-approved offers or one-click renewals for returning clients.
 3. Engage Repeat Clients
-   - Give returning clients small perks—like reduced interest rates, faster approval, or airtime bonuses.
+   - Give returning clients small perks like reduced interest rates, faster approval, or airtime bonuses.
    - Ask repeat clients for feedback on their experience and use it to improve services while subtly prompting re-engagement.
 4. Expand Motorcycle Loans offering
    - Prioritize high-demand areas with strong motorcycle usage (e.g., rural transport hubs).
@@ -264,7 +264,12 @@ ORDER BY d.LoanDate;
    - Introduce pre-filled forms for repeat clients using existing data to speed up reapplications.
    - Enable instant document uploads and e-signatures to reduce physical paperwork delays.
    - Digitize loan applications via mobile apps, USSD codes, WhatsApp bots, or web portals.
-   - Deploy smart notifications to alert staff of pending approvals or missing documents. 
+   - Deploy smart notifications to alert staff of pending approvals or missing documents.
+6. Align with Peak Days
+   - Identify peak loan activity days using historical data—e.g., Mondays and Thursdays.
+   - Schedule targeted promotions (e.g., discounts, giveaways) to coincide with high-demand days.
+   - Send reminder messages to clients ahead of peak days to drive engagement.
+   - Use dashboards to visualize daily trends and adjust operations dynamically.
 
 
 
