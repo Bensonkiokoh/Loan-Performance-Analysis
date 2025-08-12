@@ -240,7 +240,6 @@ LEFT JOIN Loans l ON l.application_status = 5
 GROUP BY d.LoanDate
 ORDER BY d.LoanDate;
 ```
-
 <img width="167" height="343" alt="Screenshot 2025-08-12 065220" src="https://github.com/user-attachments/assets/f531937d-4b7b-4103-9145-6a951307e9d4" />
 
 ### Key Findings
@@ -248,15 +247,17 @@ The exploratory analysis revealed several actionable insights across product per
 #### Motorcycle Loan Highlights
 - Motorcycle loans show high uptake especially among small business owners and boda boda operators.
 - Loan applications peak on Mondays and Thursdays, suggesting opportunities to align staffing and promotions with demand.
-- Low-sales days (e.g., Tuesdays,Wednesdays,Friday and Saturday) present untapped potential for targeted campaigns and client engagement.
+- Low-sales days (e.g. Tuesdays,Wednesdays,Friday and Saturday) present untapped potential for targeted campaigns and client engagement.
   
 #### Operational & Performance Insights
-- Repeat Borrowers: Several clients have taken multiple motorcycle loans, with one client taking 6 loans over 184 days, suggesting strong retention and asset replacement cycles.
 - Top Performing Team: Team A issued 705 loans, significantly outperforming Team B (430 loans).
 - Fastest Agents: Susan and John from Team A average just 2 days from application to issuance — ideal benchmarks for efficiency.
 - Walk-in clients generated the highest loan value (KES 1.77M from 329 applications).
 - Telesales and Web channels also performed well, each contributing over KES 1.5M in issued loans.
-
+  
+#### Client Behavior & Retention
+- Repeat Borrowers: Several clients have taken multiple motorcycle loans, with one client taking 6 loans over 184 days, suggesting strong retention and asset replacement cycles.
+- Daily Active Loans: Loan activity steadily increased from 4 active loans on Jan 2 to 132 by Jan 31, indicating strong early growth.
 
 ### Recommendations Summary
 1. Support Top Agents
