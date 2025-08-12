@@ -87,6 +87,10 @@ GROUP BY FORMAT(application_creation_date, 'yyyy-MM')
 ```
 <img width="148" height="162" alt="Screenshot 2025-08-11 212238" src="https://github.com/user-attachments/assets/bdd389e4-e5a0-47e3-ac90-6944554cf7da" />
 
+##### Insight:
+
+ This is the core volume metric that drives revenue. It’s the starting point for understanding growth trends.
+
 #### Which team and loan agents issue the most loans?
 ##### By Team:
 
