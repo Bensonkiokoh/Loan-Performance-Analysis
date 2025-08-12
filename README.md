@@ -87,9 +87,9 @@ GROUP BY FORMAT(application_creation_date, 'yyyy-MM')
 ```
 <img width="148" height="162" alt="Screenshot 2025-08-11 212238" src="https://github.com/user-attachments/assets/bdd389e4-e5a0-47e3-ac90-6944554cf7da" />
 
-##### Insight:
-
- This is the core volume metric that drives revenue. It’s the starting point for understanding growth trends.
+##### Finding:
+- April 2025 recorded the highest loan count.
+- June and July 2025 tied for the lowest loan counts.
 
 #### Which team and loan agents issue the most loans?
 ##### By Team:
@@ -110,7 +110,7 @@ ORDER BY LoansIssued DESC
 
 ##### By Agent:
 ```sql
-SELECT TOP 1
+SELECT 
 	l.loan_agent,
 	COUNT(*) LoansIssued
 FROM Loans L
@@ -119,10 +119,10 @@ AND loan_agent IS NOT NULL
 GROUP BY L.loan_agent
 ORDER BY LoansIssued DESC
 ```
+<img width="154" height="97" alt="Screenshot 2025-08-12 124330" src="https://github.com/user-attachments/assets/e138163e-ca5b-45ae-a9a3-ff7e3a61086d" />
 
-<img width="167" height="45" alt="Screenshot 2025-08-11 214317" src="https://github.com/user-attachments/assets/eec5f853-e23c-489e-a017-e7f9bb91a151" />
 
-#### How are loans distributed by value ranges?
+#### How are loans distributed by value ranges (1K)?
 
 ```sql
 SELECT 
@@ -134,6 +134,8 @@ WHERE application_status = 5
 GROUP BY FLOOR(loan_value / 1000)
 ORDER BY FLOOR(loan_value / 1000);
 ```
+##### Finding:
+The most common loan value range is 9,000–9,999, with 114 loans issued, totaling KES 1,077,400
 
 <img width="242" height="247" alt="Screenshot 2025-08-11 215619" src="https://github.com/user-attachments/assets/fb229e4e-cc78-4ed2-9dab-6e0c761a3699" />
 
@@ -241,9 +243,28 @@ ORDER BY d.LoanDate;
 
 <img width="167" height="343" alt="Screenshot 2025-08-12 065220" src="https://github.com/user-attachments/assets/f531937d-4b7b-4103-9145-6a951307e9d4" />
 
-
-
-
+### Recommendations Summary
+1. Support Top Agents
+   - Encourage knowledge sharing from high performers like John and Susan to improve team-wide efficiency.
+   - Recognition & Incentives: Introduce monthly awards or bonuses for agents who meet or exceed KPIs, encouraging others to follow suit.
+   - Assign top agents as mentors to newer or lower-performing team members for weekly coaching sessions.
+   - Use transparent dashboards to show performance metrics, helping agents track progress and learn from leaders.
+2. Promote Popular Loan Ranges
+   - Run digital ads and SMS promotions highlighting the benefits of KES 9,000 loans quick approval, flexible repayment, and popular use cases.
+   - Reward clients who refer others for KES 9,000 loans with small cash bonuses or discounts on their next loan.
+   - Simplify the process of getting loans use pre-approved offers or one-click renewals for returning clients.
+3. Engage Repeat Clients
+   - Give returning clients small perks—like reduced interest rates, faster approval, or airtime bonuses.
+   - Ask repeat clients for feedback on their experience and use it to improve services while subtly prompting re-engagement.
+4. Expand Motorcycle Loans offering
+   - Prioritize high-demand areas with strong motorcycle usage (e.g., rural transport hubs).
+   - Bundle motorcycle loans with value-added services such as insurance, helmets, servicing, and accessories.
+   - Partner with motorcycle dealers and service providers to streamline the loan-to-purchase and servicing journey.
+5. Accelarate Loan Processing
+   - Introduce pre-filled forms for repeat clients using existing data to speed up reapplications.
+   - Enable instant document uploads and e-signatures to reduce physical paperwork delays.
+   - Digitize loan applications via mobile apps, USSD codes, WhatsApp bots, or web portals.
+   - Deploy smart notifications to alert staff of pending approvals or missing documents. 
 
 
 
