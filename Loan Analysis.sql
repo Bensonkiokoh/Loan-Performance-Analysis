@@ -1,4 +1,4 @@
-USE Mogo_Loans
+
 
 
 --SELECT * FROM INFORMATION_SCHEMA.TABLES
@@ -133,5 +133,6 @@ FROM Loans
 WHERE application_status = 5
   AND CAST(application_creation_date AS DATE) <= '2025-01-15'
   AND (loan_paid_off_at IS NULL OR CAST(loan_paid_off_at AS DATE) >= '2025-01-15');
+
 
 
