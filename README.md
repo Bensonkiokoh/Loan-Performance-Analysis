@@ -1,5 +1,5 @@
 # Loan Performance Analysis
-This project is a full exploratory data analysis (EDA) of loan issuance data. It focuses on understanding how loans are distributed, who takes them, and the operational performance behind the scenes.
+
 ## Introduction
 This project is a full exploratory data analysis (EDA) of loan issuance data. It focuses on understanding how loans are distributed, who takes them, and the operational performance behind the scenes.
 
